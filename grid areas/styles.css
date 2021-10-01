@@ -82,7 +82,7 @@ body{
 
 .container #lateral{
     grid-area: lateral;
-    background: #eee;
+    background: rgb(201, 20, 20);
 }
 
 .container footer{
