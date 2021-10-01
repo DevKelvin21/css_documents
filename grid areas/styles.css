@@ -9,17 +9,21 @@ body{
 .container{
     /* elementos del grid */
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 150px 70px 1fr 70px;
-
+    grid-template-columns: 0.7fr repeat(4, 1fr);
+    grid-template-rows: 70px 70px 1fr 70px;
+    grid-template-areas: 
+    "menu menu menu menu menu"
+    "lateral filtros filtros filtros filtros"
+    "lateral contenido contenido contenido contenido"
+    "footer footer footer footer footer ";
     /* reglas css */
-    width: 100%;
+    width: 99vw;
     height: 100vh;
     margin: 0 auto;
     border: 1px solid #ccc;
 }
 
-#cabecera{
+.container #cabecera{
 
     /* elementos en flex para centrar el contenido */
     display: flex;
@@ -27,52 +31,62 @@ body{
     align-items: center;
 
     /* reglas grid y css */
-    grid-column: 1/6;
+    
     background-color: blue ;
     color: white;
 
 }
 
-#menu{
-    grid-column: 1/6;
+.container #filtros{
+    grid-area: filtros;
+    
+    background: #eee;
+    line-height: 70px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.container #menu{
+    grid-area: menu;
     background-color: lightblue;
     color: rgb(36, 36, 36);
     line-height: 70px;
 }
 
-#menu ul{
+.container #menu ul{
     display: grid;
     grid-template-columns: 1fr 2fr repeat(4,0.5fr);
     list-style: none;
 }
 
 
-#menu a{
+.container #menu a{
     text-decoration: none;
     color: rgb(36, 36, 36);
 }
 
-#contenido{
-    grid-column: 1/5;
+.container #contenido{
+    grid-area: contenido;
     background: #eee;
-
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     padding: 1rem;
-    grid-gap: 1rem;
+    grid-gap: 5px;
 }
 
-#contenido article{
+.container #contenido article{
     background: #ccc;
     border: 1px solid #555;
 }
 
-#lateral{
-    background: orange;
+.container #lateral{
+    grid-area: lateral;
+    background: #eee;
 }
 
-footer{
-    grid-column: 1/6;
+.container footer{
+    grid-area: footer;
     background: black;
     color: #ccc;
 }
